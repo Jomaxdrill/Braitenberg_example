@@ -40,7 +40,7 @@ Moving around:
         x
 
 w/x : increase/decrease linear velocity (Burger : ~ 0.22 m/s)
-a/d : increase/decrease angular velocity (Burger : ~ 2.84 m/s)
+a/d : increase/decrease angular velocity (Burger : ~ 2.84 rad/s)
 
 space key, s : force stop
 
