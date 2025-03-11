@@ -165,6 +165,8 @@ docker exec -it ID_OR_NAME_CONTAINER bash
  ![image](https://github.com/user-attachments/assets/fcc6064f-d927-47ea-98ab-4e9bc536c0a1)
  
 Execute the commands of the Running scripts operation section
+![image](https://github.com/user-attachments/assets/fcc839c5-9a89-49c2-8958-483ea58aa39d)
+
  ![image](https://github.com/user-attachments/assets/82d8078c-e729-44c4-a556-ade294f52dcc)
 
 It might have errors showing gazebo so pref executed in a Ubuntu distribution.
