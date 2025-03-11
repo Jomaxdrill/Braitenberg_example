@@ -167,7 +167,7 @@ docker exec -it ID_OR_NAME_CONTAINER bash
 Execute the commands of the Running scripts operation section
  ![image](https://github.com/user-attachments/assets/82d8078c-e729-44c4-a556-ade294f52dcc)
 
-
+It might have errors showing gazebo so pref executed in a Ubuntu distribution.
 
 ## Video demonstrations
 Teleoperation https://drive.google.com/file/d/1Zs254Z68APxohSS3amW5wCYu_IokDcOV/view?usp=sharing
