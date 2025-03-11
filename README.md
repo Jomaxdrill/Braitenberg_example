@@ -103,6 +103,72 @@ You should get the following terminal screen. Add objects to the gazebo envirome
 
 ![image](https://github.com/user-attachments/assets/dff325f3-62f1-4acd-9755-4ae7a4f49f1e)
 
+### Docker file running
+Locate the folder where Dockerfile is and create the image
+```sh
+DOCKER_BUILDKIT=1 docker build -t braitenberg_sim:v1 .
+```
+
+Run the container inside it will be neccesary to run some commands
+
+ ```sh
+docker run -it --rm \
+     -e DISPLAY=$DISPLAY \
+     -v /tmp/.X11-unix:/tmp/.X11-unix \
+     --network=host \
+    braitenberg_sim:v1
+```
+Configure ROS 2 Repository Inside the Container so it's updated
+
+```sh
+apt update
+apt install -y curl gnupg2 lsb-release
+curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key | apt-key add -
+sh -c 'echo "deb http://packages.ros.org/ros2/ubuntu $(lsb_release -cs) main" > /etc/apt/sources.list.d/ros2.list'
+```
+
+Update package list and install gazebo
+```sh
+apt update
+apt install -y ros-galactic-gazebo-ros-pkgs
+```
+
+Install to keep gazebo dependency as standalone Gazebo and check gazebo version
+```sh
+apt install -y libgazebo11-dev
+gazebo --version
+```
+Install correctly python
+
+Add a symbolic link to python3 and verify version ,should be 3.8
+```sh
+ln -s /usr/bin/python3 /usr/bin/python
+python --version
+```
+
+Rebuild the container
+```sh
+source /opt/ros/galactic/setup.bash
+cd /ROS_WS
+rm -rf build/ install/ log/  # Clean previous build
+colcon build
+```
+Run different terminals of the image container
+
+Check the instance of the container and get the id
+ ```sh 
+ docker ps
+``` 
+```sh
+docker exec -it ID_OR_NAME_CONTAINER bash
+``` 
+ ![image](https://github.com/user-attachments/assets/fcc6064f-d927-47ea-98ab-4e9bc536c0a1)
+ 
+Execute the commands of the Running scripts operation section
+ ![image](https://github.com/user-attachments/assets/82d8078c-e729-44c4-a556-ade294f52dcc)
+
+
+
 ## Video demonstrations
 Teleoperation https://drive.google.com/file/d/1Zs254Z68APxohSS3amW5wCYu_IokDcOV/view?usp=sharing
 Autnomous mode https://drive.google.com/file/d/1EJPw2p9TDKc5ZOOGISl_-vvAzcBT-rRw/view?usp=sharing
