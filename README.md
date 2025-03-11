@@ -109,7 +109,7 @@ Locate the folder where Dockerfile is and create the image
 DOCKER_BUILDKIT=1 docker build -t braitenberg_sim:v1 .
 ```
 
-Run the container inside it will be neccesary to run some commands
+Run the container inside it will be neccesary to run some commands that weren't sucessfull by trying to do it directly in the DockerFile
 
  ```sh
 docker run -it --rm \
@@ -118,6 +118,9 @@ docker run -it --rm \
      --network=host \
     braitenberg_sim:v1
 ```
+
+![image](https://github.com/user-attachments/assets/207782bc-8ccc-497f-b9c6-2c2245906bd1)
+
 Configure ROS 2 Repository Inside the Container so it's updated
 
 ```sh
